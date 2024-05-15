@@ -32,38 +32,38 @@ const ClientStats = () => {
     <div>
       <h1 className="text-2xl text-[#F39C12]">CLIENT STATISTICS</h1>
       <div className="mt-8 flow-root">
-        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div className="-mx-4 -my-2 overflow-x-auto">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6">
             <table className="min-w-full divide-y divide-gray-300">
               <thead>
                 <tr className="divide-x">
                   <th
                     scope="col"
-                    className="whitespace-nowrap py-3.5 pl-3 pr-2 text-left text-sm lg:text-base font-semibold text-gray-900 sm:pl-0"
+                    className="whitespace-nowrap py-3.5 pl-2 pr-2 text-left text-sm lg:text-base font-semibold text-gray-900"
                   >
-                    CLIENT
+                    Client
                   </th>
                   <th
                     scope="col"
                     className="whitespace-nowrap px-1 py-3.5 text-left text-sm lg:text-base font-semibold text-gray-900"
                   >
-                    SUCCESSFUL SHIPMENTS
+                    Successful Shipment
                   </th>
                   <th
                     scope="col"
-                    className="whitespace-nowrap px-1 py-3.5  text-left text-sm lg:text-base  font-semibold text-gray-900"
+                    className="whitespace-nowrap px-1 py-3.5 text-left text-sm lg:text-base font-semibold text-gray-900"
                   >
-                    CANCELLED/RETURN SHIPMENTS
+                    Cancelled/Return Shipment
                   </th>
                   <th
                     scope="col"
-                    className="whitespace-nowrap px-1 py-3.5  text-left text-sm lg:text-base  font-semibold text-gray-900"
+                    className="whitespace-nowrap px-1 py-3.5 text-left text-sm lg:text-base font-semibold text-gray-900"
                   >
-                    STATIONS USED
+                    Station Used
                   </th>
                   <th
                     scope="col"
-                    className="whitespace-nowrap px-1 py-3.5  text-left text-sm lg:text-base  font-semibold text-gray-900"
+                    className="whitespace-nowrap px-1 py-3.5 text-left text-sm lg:text-base font-semibold text-gray-900"
                   >
                     Destinations
                   </th>
