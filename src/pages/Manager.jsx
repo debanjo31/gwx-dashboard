@@ -1,7 +1,12 @@
-import React from "react";
+import Header from "../componenets/Header";
 
 const Manager = () => {
-  return <div>Manager</div>;
+  return (
+    <div>
+      <Header />
+      Manager
+    </div>
+  );
 };
 
 export default Manager;
