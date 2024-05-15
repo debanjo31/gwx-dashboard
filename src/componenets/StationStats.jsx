@@ -8,19 +8,18 @@ const StationStats = () => {
     setData(jsonData.logisticsData);
   }, []);
   useEffect(() => {
-    const uniqueStations = [...new Set(data.map((item) => item.stationName))];
+    const uniqueStations = [...new Set(data.map((item) => item.station))];
     const stationCount = uniqueStations.map((station) => {
-      const stationData = data.filter((item) => item.stationName === station);
+      const stationData = data.filter((item) => item.station === station);
       return {
         station: station,
         successfulShipments: stationData.filter(
-          (item) => item.successfulDelivery === true
+          (item) => item.status === "successful"
         ).length,
         cancelledReturnShipments: stationData.filter(
-          (item) => item.cancelDelivery === true || item.returnDelivery === true
+          (item) => item.status === "cancel" || item.status === "retun"
         ).length,
-        clients: [...new Set(stationData.map((item) => item.clientName))]
-          .length,
+        clients: [...new Set(stationData.map((item) => item.client))].length,
         destinations: [...new Set(stationData.map((item) => item.destination))]
           .length,
       };

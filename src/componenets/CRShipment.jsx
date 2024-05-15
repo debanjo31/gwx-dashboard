@@ -13,7 +13,7 @@ const CRShipment = () => {
   useEffect(() => {
     const crShipment = data.filter((item) => {
       //if cancelDelivery is true, then it is a cancelled/returned shipment, returnDelivery is true then it is a returned shipment
-      return item.cancelDelivery === true || item.returnDelivery === true;
+      return item.status === "cancel" || item.status === "return";
     });
 
     if (sort === "destination") {
@@ -30,7 +30,7 @@ const CRShipment = () => {
       );
       setCRShipment(sortedDestinations.slice(0, numberDisplay));
     } else {
-      const stations = crShipment.map((item) => item.stationName);
+      const stations = crShipment.map((item) => item.station);
       const uniqueStations = [...new Set(stations)];
       const stationCount = uniqueStations.map((station) => {
         return {

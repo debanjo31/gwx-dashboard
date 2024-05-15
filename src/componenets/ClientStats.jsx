@@ -8,20 +8,19 @@ const ClientStats = () => {
     setData(jsonData.logisticsData);
   }, []);
   useEffect(() => {
-    const clients = data.map((item) => item.clientName);
+    const clients = data.map((item) => item.client);
     const uniqueClients = [...new Set(clients)];
     const clientCount = uniqueClients.map((client) => {
-      const clientData = data.filter((item) => item.clientName === client);
+      const clientData = data.filter((item) => item.client === client);
       return {
         client: client,
         successfulShipments: clientData.filter(
-          (item) => item.successfulDelivery === true
+          (item) => item.status === "successful"
         ).length,
         cancelledReturnShipments: clientData.filter(
-          (item) => item.cancelDelivery === true || item.returnDelivery === true
+          (item) => item.status === "cancel" || item.status === "return"
         ).length,
-        clients: [...new Set(clientData.map((item) => item.stationName))]
-          .length,
+        clients: [...new Set(clientData.map((item) => item.station))].length,
         destinations: [...new Set(clientData.map((item) => item.destination))]
           .length,
       };
