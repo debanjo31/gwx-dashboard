@@ -3,7 +3,7 @@ import { Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div className="shadow">
+    <div className="shadow z-10">
       <div className="w-5/6 mx-auto flex justify-between p-2">
         <div></div>
         <h3 className="text-[#F39C12] font-bold">GWX DASHBOARD</h3>

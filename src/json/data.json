@@ -3,9 +3,9 @@
     {
       "clientName": "Client 1",
       "stationName": "Station 1",
-      "successfulDelivery": true,
+      "successfulDelivery": false,
       "cancelDelivery": false,
-      "returnDelivery": false,
+      "returnDelivery": true,
       "destination": "Location 1",
       "date": "2024-01-01"
     },
@@ -58,8 +58,8 @@
       "clientName": "Client 6",
       "stationName": "Station 1",
       "successfulDelivery": false,
-      "cancelDelivery": true,
-      "returnDelivery": false,
+      "cancelDelivery": false,
+      "returnDelivery": true,
       "destination": "Location 1",
       "date": "2024-01-06"
     },
@@ -94,8 +94,8 @@
       "clientName": "Client 10",
       "stationName": "Station 5",
       "successfulDelivery": false,
-      "cancelDelivery": true,
-      "returnDelivery": false,
+      "cancelDelivery": false,
+      "returnDelivery": true,
       "destination": "Location 5",
       "date": "2024-01-10"
     },
@@ -300,9 +300,9 @@
     {
       "clientName": "Client 8",
       "stationName": "Station 5",
-      "successfulDelivery": true,
+      "successfulDelivery": false,
       "cancelDelivery": false,
-      "returnDelivery": false,
+      "returnDelivery": true,
       "destination": "Location 2",
       "date": "2024-02-02"
     },
@@ -354,9 +354,9 @@
     {
       "clientName": "Client 10",
       "stationName": "Station 1",
-      "successfulDelivery": true,
+      "successfulDelivery": false,
       "cancelDelivery": false,
-      "returnDelivery": false,
+      "returnDelivery": true,
       "destination": "Location 4",
       "date": "2024-02-08"
     },
