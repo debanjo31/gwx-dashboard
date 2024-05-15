@@ -5,7 +5,7 @@ import StationStats from "../componenets/StationStats";
 import Dashboard from "../componenets/Dashboard";
 
 const Customer = () => {
-  const [menu, setMenu] = useState("Top destinations");
+  const [menu, setMenu] = useState("Dashboard");
   return (
     <div className="w-full h-screen flex relative overflow-x-hidden">
       <div className="naviagtion bg-[#F39C12] text-white w-3/12 h-full p-2 fixed left-0 top-0">
@@ -20,13 +20,15 @@ const Customer = () => {
       </div>
       <div className="w-9/12 h-full ml-auto">
         <Header />
-        {menu === "Dashboard" ? (
-          <Dashboard />
-        ) : menu === "Station Stats" ? (
-          <StationStats />
-        ) : menu === "Client Stats" ? (
-          <ClientStats />
-        ) : null}
+        <div className="container p-6 mx-auto">
+          {menu === "Dashboard" ? (
+            <Dashboard />
+          ) : menu === "Station Stats" ? (
+            <StationStats />
+          ) : menu === "Client Stats" ? (
+            <ClientStats />
+          ) : null}
+        </div>
       </div>
     </div>
   );
