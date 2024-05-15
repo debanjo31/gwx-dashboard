@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Header from "../componenets/Header";
+import ClientStats from "../componenets/ClientStats";
+import StationStats from "../componenets/StationStats";
+import Dashboard from "../componenets/Dashboard";
 
 const Customer = () => {
   const [menu, setMenu] = useState("Top destinations");
@@ -17,6 +20,13 @@ const Customer = () => {
       </div>
       <div className="w-9/12 h-full ml-auto">
         <Header />
+        {menu === "Dashboard" ? (
+          <Dashboard />
+        ) : menu === "Station Stats" ? (
+          <StationStats />
+        ) : menu === "Client Stats" ? (
+          <ClientStats />
+        ) : null}
       </div>
     </div>
   );
