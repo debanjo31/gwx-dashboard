@@ -16,9 +16,7 @@ const SuperAdmin = () => {
           <button onClick={() => setMenu("Station Stats")}>
             Station Stats
           </button>
-          <button onClick={() => setMenu("Shipment Stats")}>
-            Shipment Stats
-          </button>
+
           <button onClick={() => setMenu("Client Stats")}>Client Stats</button>
         </div>
       </div>
