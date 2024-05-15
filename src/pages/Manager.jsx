@@ -3,6 +3,7 @@ import Header from "../componenets/Header";
 import ClientStats from "../componenets/ClientStats";
 import StationStats from "../componenets/StationStats";
 import Dashboard from "../componenets/Dashboard";
+import Transactions from "../componenets/Transactions";
 
 const Customer = () => {
   const [menu, setMenu] = useState("Dashboard");
@@ -12,7 +13,7 @@ const Customer = () => {
         <h3 className="font-bold">Manager View</h3>
         <div className="mt-12 text-white flex flex-col text-base justify-left gap-4">
           <button onClick={() => setMenu("Dashboard")}>Dashboard</button>
-          <button onClick={() => setMenu("Station Stats")}>
+          <button onClick={() => setMenu("Transaction")}>
             Transaction Analysis
           </button>
           <button onClick={() => setMenu("Client Stats")}>Client Stats</button>
@@ -23,8 +24,8 @@ const Customer = () => {
         <div className="container p-6 mx-auto">
           {menu === "Dashboard" ? (
             <Dashboard />
-          ) : menu === "Station Stats" ? (
-            <StationStats />
+          ) : menu === "Transaction" ? (
+            <Transactions />
           ) : menu === "Client Stats" ? (
             <ClientStats />
           ) : null}
