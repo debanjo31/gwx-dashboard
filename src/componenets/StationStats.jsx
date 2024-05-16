@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import jsonData from "../json/data.json";
+import LineChart from "../chart/Line";
 
 const StationStats = () => {
   const [data, setData] = useState([]);
   const [stationStats, setStationStats] = useState([]);
+  const [chartData, setChartData] = useState({});
   useEffect(() => {
     setData(jsonData.logisticsData);
   }, []);
@@ -26,9 +28,48 @@ const StationStats = () => {
     });
     setStationStats(stationCount);
   }, [data]);
+
+  useEffect(() => {
+    setChartData({
+      labels: stationStats?.map((data) => data.station),
+      datasets: [
+        {
+          label: "Successful Shipments",
+          data: stationStats?.map((data) => data.successfulShipments),
+          backgroundColor: ["rgba(75,192,192,1)"],
+          borderColor: "black",
+          borderWidth: 2,
+        },
+        {
+          label: "Cancelled/Return Shipments",
+          data: stationStats?.map((data) => data.cancelledReturnShipments),
+          backgroundColor: ["#ecf0f1"],
+          borderColor: "red",
+          borderWidth: 2,
+        },
+        {
+          label: "Clients",
+          data: stationStats?.map((data) => data.clients),
+          backgroundColor: ["#50AF95"],
+          borderColor: "green",
+          borderWidth: 2,
+        },
+        {
+          label: "Destinations",
+          data: stationStats?.map((data) => data.destinations),
+          backgroundColor: ["#f3ba2f"],
+          borderColor: "purple",
+          borderWidth: 2,
+        },
+      ],
+    });
+  }, [stationStats]);
+  console.log(stationStats);
+
   return (
     <div>
       <h1 className="text-2xl text-[#F39C12]">STATIONS STATISTICS</h1>
+      {stationStats.length > 0 && <LineChart chartData={chartData} />}
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
