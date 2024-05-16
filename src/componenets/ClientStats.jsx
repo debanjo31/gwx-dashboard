@@ -27,6 +27,7 @@ const ClientStats = () => {
     });
     setClients(clientCount);
   }, [data]);
+  console.log(clients);
   return (
     <div>
       <h1 className="text-2xl text-[#F39C12]">CLIENT STATISTICS</h1>

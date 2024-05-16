@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import jsonData from "../json/data.json";
+import LineChart from "../chart/Line";
 
 const TopDestination = () => {
   const [data, setData] = useState([]);
   const [topDestinations, setTopDestinations] = useState([]);
   const [numberDisplay, setNumberDisplay] = useState(5);
+  const [chartData, setChartData] = useState({});
   useEffect(() => {
     setData(jsonData.logisticsData);
   }, []);
@@ -24,11 +26,33 @@ const TopDestination = () => {
     setTopDestinations(sortedDestinations.slice(0, numberDisplay));
   }, [data, numberDisplay]);
 
+  useEffect(() => {
+    setChartData({
+      labels: topDestinations?.map((data) => data.destination),
+      datasets: [
+        {
+          label: "Shipments",
+          data: topDestinations?.map((data) => data.count),
+          backgroundColor: [
+            "rgba(75,192,192,1)",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
+          borderColor: "black",
+          borderWidth: 2,
+        },
+      ],
+    });
+  }, [topDestinations, numberDisplay]);
+
   console.log(topDestinations);
   console.log(numberDisplay);
   return (
     <div>
       <h1 className="text-2xl text-[#F39C12]">TOP DESTINATIONS</h1>
+      {topDestinations.length > 0 && <LineChart chartData={chartData} />}
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">

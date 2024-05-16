@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import jsonData from "../json/data.json";
+import LineChart from "../chart/Line";
 
 const CRShipment = () => {
   const [data, setData] = useState([]);
   const [crshipment, setCRShipment] = useState([]);
   const [sort, setSort] = useState("destination"); // [destination, station]
   const [numberDisplay, setNumberDisplay] = useState(5);
+  const [chartData, setChartData] = useState({});
   useEffect(() => {
     setData(jsonData.logisticsData);
   }, []);
@@ -42,10 +44,34 @@ const CRShipment = () => {
       setCRShipment(sortedStations.slice(0, numberDisplay));
     }
   }, [data, numberDisplay, sort]);
+  useEffect(() => {
+    setChartData({
+      labels: crshipment?.map((data) =>
+        sort === "destination" ? data.destination : data.station
+      ),
+      datasets: [
+        {
+          label: sort === "destination" ? "Destination" : "Station",
+          data: crshipment?.map((data) => data.count),
+          backgroundColor: [
+            "rgba(75,192,192,1)",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
+          borderColor: "black",
+          borderWidth: 2,
+        },
+      ],
+    });
+  }, [crshipment, sort]);
+
   console.log(crshipment);
   return (
     <div>
       <h1 className="text-2xl text-[#F39C12]">CANCELLED/RETURN SHIPMENT</h1>
+      {crshipment.length > 0 && <LineChart chartData={chartData} />}
       <div className="flex gap-2 mt-4">
         <p>Sort by:</p>
         <select
