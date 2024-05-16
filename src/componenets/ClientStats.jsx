@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import jsonData from "../json/data.json";
+import LineChart from "../chart/Line";
 
 const ClientStats = () => {
   const [data, setData] = useState([]);
   const [clients, setClients] = useState([]);
+  const [chartData, setChartData] = useState({});
   useEffect(() => {
     setData(jsonData.logisticsData);
   }, []);
@@ -27,10 +29,47 @@ const ClientStats = () => {
     });
     setClients(clientCount);
   }, [data]);
+
+  useEffect(() => {
+    setChartData({
+      labels: clients?.map((data) => data.client),
+      datasets: [
+        {
+          label: "Successful Shipments",
+          data: clients?.map((data) => data.successfulShipments),
+          backgroundColor: ["rgba(75,192,192,1)"],
+          borderColor: "black",
+          borderWidth: 2,
+        },
+        {
+          label: "Cancelled/Return Shipments",
+          data: clients?.map((data) => data.cancelledReturnShipments),
+          backgroundColor: ["#ecf0f1"],
+          borderColor: "red",
+          borderWidth: 2,
+        },
+        {
+          label: "Station Used",
+          data: clients?.map((data) => data.clients),
+          backgroundColor: ["#50AF95"],
+          borderColor: "green",
+          borderWidth: 2,
+        },
+        {
+          label: "Destinations",
+          data: clients?.map((data) => data.destinations),
+          backgroundColor: ["#f3ba2f"],
+          borderColor: "yellow",
+          borderWidth: 2,
+        },
+      ],
+    });
+  }, [clients]);
   console.log(clients);
   return (
     <div>
       <h1 className="text-2xl text-[#F39C12]">CLIENT STATISTICS</h1>
+      {clients.length > 0 && <LineChart chartData={chartData} />}
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6">
