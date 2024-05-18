@@ -9,7 +9,7 @@ const Customer = () => {
   const [menu, setMenu] = useState("Dashboard");
   const [sideBar, setSideBar] = useState(false);
   return (
-    <div className="w-full h-screen flex relative overflow-x-hidden">
+    <div className="w-full z-10 h-screen flex relative overflow-x-hidden">
       <div
         className={`naviagtion bg-[#F39C12] text-white w-7/12 md:w-3/12 h-full p-2 fixed left-0 top-0 ${
           sideBar ? "block" : "hidden"
