@@ -1,11 +1,22 @@
 import React from "react";
 import { Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
-const Header = () => {
+import { FaBars } from "react-icons/fa";
+const Header = ({ sideBar, setSideBar }) => {
   return (
     <div className="shadow z-10">
       <div className="w-5/6 mx-auto flex justify-between p-2">
-        <div></div>
+        <div>
+          <div className="lg:hidden mt-1">
+            <FaBars
+              className="cursor-pointer"
+              onClick={() => {
+                setSideBar(!sideBar);
+                console.log(sideBar);
+              }}
+            />
+          </div>
+        </div>
         <h3 className="text-[#F39C12] font-bold">GWX DASHBOARD</h3>
         <div className="">
           <Dropdown
