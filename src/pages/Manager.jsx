@@ -25,11 +25,30 @@ const Customer = () => {
           </p>
         </div>
         <div className="mt-12 text-white flex flex-col text-base justify-left gap-4">
-          <button onClick={() => setMenu("Dashboard")}>Dashboard</button>
-          <button onClick={() => setMenu("Transaction")}>
+          <button
+            onClick={() => {
+              setMenu("Dashboard");
+              setSideBar(!sideBar);
+            }}
+          >
+            Dashboard
+          </button>
+          <button
+            onClick={() => {
+              setMenu("Transaction");
+              setSideBar(!sideBar);
+            }}
+          >
             Transaction Analysis
           </button>
-          <button onClick={() => setMenu("Client Stats")}>Client Stats</button>
+          <button
+            onClick={() => {
+              setMenu("Client Stats");
+              setSideBar(!sideBar);
+            }}
+          >
+            Client Stats
+          </button>
         </div>
       </div>
       <div className="w-full md:w-9/12 h-full ml-auto">

@@ -24,13 +24,28 @@ const Customer = () => {
           </p>
         </div>
         <div className="mt-12 text-white flex flex-col text-base justify-left gap-4">
-          <button onClick={() => setMenu("Top destinations")}>
+          <button
+            onClick={() => {
+              setMenu("Top destinations");
+              setSideBar(!sideBar);
+            }}
+          >
             Top destinations
           </button>
-          <button onClick={() => setMenu("Canceled/Returned Shipments")}>
+          <button
+            onClick={() => {
+              setMenu("Canceled/Returned Shipments");
+              setSideBar(!sideBar);
+            }}
+          >
             Canceled/Returned Shipments
           </button>
-          <button onClick={() => setMenu("Successful delivery")}>
+          <button
+            onClick={() => {
+              setMenu("Successful delivery");
+              setSideBar(!sideBar);
+            }}
+          >
             Successful delivery
           </button>
         </div>
